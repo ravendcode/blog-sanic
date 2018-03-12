@@ -4,6 +4,7 @@ from sanic import response
 from sanic.exceptions import NotFound
 from dotenv import load_dotenv
 from config import routes
+import ws
 
 
 load_dotenv()
@@ -33,6 +34,7 @@ async def home(request):
     return await response.file(os.path.join(STATIC_DIR, 'index.html'))
 
 routes.init(app)
+ws.init(app)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
