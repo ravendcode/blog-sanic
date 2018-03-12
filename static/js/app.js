@@ -8,7 +8,8 @@
       wsUrl = 'wss://' + document.domain + '/echo';
     }
 
-    var echoWs = new WebSocket(wsUrl);
+    // var echoWs = new WebSocket(wsUrl);
+    var echoWs = new ReconnectingWebSocket(wsUrl);
 
     var messageFormElem = document.getElementById('message-form');
     var messagesUlElem = document.getElementById('messages');
@@ -33,11 +34,11 @@
       messagesUlElem.appendChild(liElem);
     };
 
-    echoWs.onclose = function (e) {
-      console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
-      setTimeout(function () {
-        connect();
-      }, 1000);
+    echoWs.onclose = function (event) {
+      console.log('Socket is closed. Reconnect will be attempted in 1 second.', event.reason);
+      // setTimeout(function () {
+      //   connect();
+      // }, 1000);
     };
   }
 

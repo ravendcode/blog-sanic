@@ -12,6 +12,7 @@
     "dev": "nodemon --watch blog_sanic --exec python blog_sanic/app.py -e js,hbs,pug,py"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0"
+    "bootstrap": "^4.0.0",
+    "reconnectingwebsocket": "^1.0.0"
   }
 }
