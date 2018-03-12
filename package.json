@@ -1,0 +1,17 @@
+{
+  "name": "blog-sanic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "ravendcode <ravendcode@gmail.com>",
+  "engines": {
+    "node": "^9.7.1"
+  },
+  "scripts": {
+    "start": "export ENV=production && python3.6 blog_sanic/app.py",
+    "dev": "nodemon --watch blog_sanic --exec python blog_sanic/app.py -e js,hbs,pug,py"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
