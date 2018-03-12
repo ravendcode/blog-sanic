@@ -1,12 +1,13 @@
 (function () {
   'use strict';
 
+  var port = location.port === '' ? '' : ':' + location.port;
+  var wsUrl = 'ws://' + document.domain + port + '/echo';
   if (/https/.test(location.href)) {
-    var echoWs = new WebSocket('wss://' + document.domain  + '/echo');
-  } else {
-    var port = location.port === '' ? '' : ':' + location.port;
-    var echoWs = new WebSocket('ws://' + document.domain + port + '/echo');
+    wsUrl = 'wss://' + document.domain  + '/echo';
   }
+
+  var echoWs = new WebSocket(wsUrl);
 
   var messageFormElem = document.getElementById('message-form');
   var messagesUlElem = document.getElementById('messages');

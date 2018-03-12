@@ -19,12 +19,3 @@ def init(app):
         finally:
             connections.remove(ws)
             print(connections)
-        # async for message in ws:
-        #     await ws.send(message)
-        # while True:
-        #     # data = 'hello!'
-        #     # await ws.send(data)
-        #     data = await ws.recv()
-        #     print('Received: ' + data)
-        #     await ws.send(data)
-        #     print('Sending: ' + data)
