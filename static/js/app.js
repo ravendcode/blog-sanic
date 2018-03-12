@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  var echoWs = new WebSocket('ws://' + document.domain + ':' + location.port + '/echo');
+  var port = location.port === '' ? '' : ':' + location.port;
+  var echoWs = new WebSocket('ws://' + document.domain  + port + '/echo');
 
   var messageFormElem = document.getElementById('message-form');
   var messagesUlElem = document.getElementById('messages');
