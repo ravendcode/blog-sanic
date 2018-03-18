@@ -10,5 +10,5 @@
 2. Edit `blog_sanic/config`
 3. `npm i -g nodemon`
 4. `yarn install`
-5. `yarn dev`
-6. `yarn start`
+5. `make`
+6. `make prod`
