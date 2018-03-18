@@ -1,6 +1,6 @@
-from api import user_api, post_api
+from resources import user_resource, post_resource
 
 
 def init(app):
-    app.blueprint(user_api.api, url_prefix='/api/user')
-    app.blueprint(post_api.api, url_prefix='/api/post')
+    app.blueprint(user_resource.api)
+    app.blueprint(post_resource.api)
