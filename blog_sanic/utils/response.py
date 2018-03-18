@@ -6,49 +6,51 @@ def not_found_abort(text='Not Found'):
     exceptions.abort(404, text)
 
 
-def ok_json(message=None, data=None, status_code=200):
-    if status_code == 200:
-        status = 'OK'
-    if status_code == 201:
-        status = 'Created'
+def ok_json(message=None, data=None, status=200):
+    status_text = None
+    if status == 200:
+        status_text = 'OK'
+    if status == 201:
+        status_text = 'Created'
     result = {
-        'status_code': status_code,
-        'status': status,
+        'status_code': status,
+        'status': status_text,
     }
     if message:
         result['message'] = message
     if data:
         result['data'] = data
-    return json(result, status=status_code)
+    return json(result, status=status)
 
 
-def error_json(message=None, errors=None, status_code=400):
-    if status_code == 400:
-        status = 'Bad Request'
+def error_json(message=None, errors=None, status=400):
+    status_text = None
+    if status == 400:
+        status_text = 'Bad Request'
         message = message if message else 'Validation Error'
-    if status_code == 401:
-        status = 'Unauthorized'
+    if status == 401:
+        status_text = 'Unauthorized'
         message = message if message else 'Unauthorized'
-    if status_code == 402:
-        status = 'Payment Required'
+    if status == 402:
+        status_text = 'Payment Required'
         message = message if message else 'Payment Required'
-    if status_code == 403:
-        status = 'Forbidden'
+    if status == 403:
+        status_text = 'Forbidden'
         message = message if message else 'Forbidden'
-    if status_code == 404:
-        status = 'Not Found'
+    if status == 404:
+        status_text = 'Not Found'
         message = message if message else 'Not Found'
-    if status_code == 405:
-        status = 'Method Not Allowed'
+    if status == 405:
+        status_text = 'Method Not Allowed'
         message = message if message else 'Method Not Allowed'
-    if status_code == 500:
-        status = 'Internal Server Error'
+    if status == 500:
+        status_text = 'Internal Server Error'
         message = message if message else 'Internal Server Error'
     result = {
-        'status_code': status_code,
-        'status': status,
+        'status_code': status,
+        'status': status_text,
         'message': message,
     }
     if errors:
         result['errors'] = errors
-    return json(result, status=status_code)
+    return json(result, status=status)

@@ -30,7 +30,7 @@ async def getAll(request):
 @api.route('/user', methods=['POST'])
 async def createOne(request):
     if not request.json.get('email'):
-        return error_json(errors={'email': 'required'}, status_code=400)
+        return error_json(errors={'email': 'required'}, status=400)
     user = User(len(storage) + 1, request.json.get('username'), request.json.get('email'))
     storage.append(user)
     return ok_json('createOne', user, 201)
