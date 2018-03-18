@@ -6,7 +6,7 @@ connections = dict()
 
 
 def add(ws):
-    id = str(uuid.uuid4())
+    id = uuid.uuid4().hex
     connections[id] = ws
     return id
 
@@ -33,7 +33,6 @@ def init(app):
             }))
             while True:
                 data = await ws.recv()
-                print('data', data)
                 await broadcast(data)
                 # await asyncio.wait([ws.send(data) for ws in connections])
         finally:
